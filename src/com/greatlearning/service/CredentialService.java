@@ -24,17 +24,12 @@ public class CredentialService {
 			int idx = random.nextInt(allowedChars.length());
 			password[i] = allowedChars.charAt(idx);
 		}
-		// Generate 8 digit random password
-		
+
+		// Generate 8 digit random password		
 		return new String(password);
 	}
 	
-	public String generateEmail(String firstName,String lastName, String department) {
-		email = firstName.toLowerCase()+lastName.toLowerCase()+"@"+department+".abc.com";
-		return email;
-	}
 
-	// learn it from seassion
 	public String generateEmailAddress(Employee emp) {
 		return emp.getFirstName().toLowerCase() + emp.getLastName().toLowerCase()+"@"+emp.getDepartment()+".abc.com";
 		

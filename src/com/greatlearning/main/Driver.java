@@ -1,13 +1,11 @@
 package com.greatlearning.main;
 import java.util.Scanner;
-import com.greatlearning.model.*;
 import com.greatlearning.service.CredentialService;
 import com.greatlearning.model.*;
 public class Driver {
 	
 	private static Scanner sc = new Scanner(System.in);
-	private static CredentialService credservice = new CredentialService();		
-	// Take inputs from the user for firstName,lastName, choice (department id - 1,2,3,4)
+
 	public static void main(String[] args) {
 		
 		System.out.println("Enter your First Name");
@@ -28,22 +26,20 @@ public class Driver {
 		switch(choice) {
 			case 1:
 				emp = new Employee(firstName,lastName,"tech");
-				credservice.generateEmail(firstName, lastName, "tech");
-
 				break;
+
 			case 2:
 				emp = new Employee(firstName,lastName,"admin");
-				credservice.generateEmail(firstName, lastName, "admin");
-
 				break;
+
 			case 3:
 				emp = new Employee(firstName,lastName,"hr");
-				credservice.generateEmail(firstName, lastName, "hr");
 				break;
+
 			case 4:
 				emp = new Employee(firstName,lastName,"lg");
-				credservice.generateEmail(firstName, lastName, "legal");
 				break;
+
 			default:
 				System.out.println("Wrong choice");
 				return;
@@ -52,7 +48,6 @@ public class Driver {
 		CredentialService cs = new CredentialService();		
 		String email = cs.generateEmailAddress(emp);
 		String password = cs.generatePassword();
-
 		cs.showCredentials(emp, email, password);
 
 		
